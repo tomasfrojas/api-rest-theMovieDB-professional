@@ -1,0 +1,20 @@
+{
+  "name": "api-rest-themoviedb-professional",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomasfrojas/api-rest-theMovieDB-professional.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomasfrojas/api-rest-theMovieDB-professional/issues"
+  },
+  "homepage": "https://github.com/tomasfrojas/api-rest-theMovieDB-professional#readme"
+}
