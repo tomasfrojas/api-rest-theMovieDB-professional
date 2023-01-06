@@ -26,6 +26,8 @@ function likedMoviesList() {
 function likeMovie(movie) {
   const likedMovies = likedMoviesList();
 
+  console.log(likedMovies);
+
   if (likedMovies[movie.id]) {
     likedMovies[movie.id] = undefined;
   } else {
@@ -87,11 +89,13 @@ function createMovies(
     });
     const movieBtn = document.createElement("button");
     movieBtn.classList.add("movie-btn");
+    likedMoviesList()[movie.id] && movieBtn.classList.add("movie-btn--liked");
     movieBtn.addEventListener("click", () => {
       movieBtn.classList.toggle("movie-btn--liked");
 
       // Guardaremos las peliculas favoritas en el localStorage
       likeMovie(movie);
+      getLikedMovies();
     });
 
     if (lazyLoad) {
@@ -278,4 +282,19 @@ async function getRelatedMoviesId(id) {
   const relatedMovies = data.results;
 
   createMovies(relatedMovies, relatedMoviesContainer);
+}
+
+function getLikedMovies() {
+  const likedMovies = likedMoviesList();
+
+  // Object.values
+  //{keys: 'values', keys: 'values'}
+  //['values','values']
+  const moviesArray = Object.values(likedMovies);
+
+  createMovies(moviesArray, likedMoviesListArticle, {
+    lazyLoad: false,
+    clean: true,
+  });
+  console.log(likedMovies);
 }
